@@ -1,7 +1,3 @@
 console.log("hallo console");
-
-interface Film {
-  judul: string;
-  jam: string;
-  harga: number;
-}
+console.log("hallo console");
+console.log("haiii dunia");
