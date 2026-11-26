@@ -8,6 +8,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "commonJS",
+    "module": "CommonJS",
     "target": "esnext",
     "types": ["node"],
     // For nodejs:
@@ -36,6 +37,7 @@
     "strict": true,
     "jsx": "react-jsx",
     //"verbatimModuleSyntax": true,
+    // "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
