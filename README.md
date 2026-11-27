@@ -31,5 +31,5 @@ Pencatatan pesanan bioskop secara manual rawan salah harga, salah menghitung dis
 | Nama & NIM | Akun GitHub | Fitur / Bagian yang Dikerjakan | Link Pull Request Utama |
 |---|---|---|---|
 | Muhammad Kurnia Sandy (263140701111025) | @kurniasandy-11 | Setup repo, struktur data, data awal, menu utama, Create, Delete, merge akhir ke main. Laporan: sampul, 1.5 dan screenshot (menu, tambah, hapus), 3.1 | Menyusul |
-| Mufida Nurlita Aulia (263140701111009) | @mufida-dev | Validasi input, Read, Update, konfirmasi Y/N. Laporan: proposal, 1.1, 1.3, 1.4, flowchart, 1.5 dan screenshot (tampil dan ubah data) | Menyusul |
+| Mufida Nurlita Aulia (263140701111009) | @mufida-dev | Validasi input, Read, Update, konfirmasi Y/N. Laporan: proposal, 1.1, 1.3, 1.4, flowchart, 1.5 dan screenshot (tampil dan ubah data) | https://github.com/kurniasandy-11/pembelian-tiket-bioskop/tree/Mufida-Nurlita-Aulia |
 | Fitroatul Qomariah (263140701111010) | @fifi-prog | Hitung subtotal, diskon, total bayar, ID unik, Search. Laporan: 1.2, tabel 3.2, README final, 1.5 dan screenshot pencarian, bukti kontribusi GitHub | https://github.com/kurniasandy-11/pembelian-tiket-bioskop/tree/Fitroatul-Qomariah |
