@@ -1,16 +1,30 @@
 {
-  "name": "beli",
+  "name": "pembelian-tiket-bioskop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurniasandy-11/pembelian-tiket-bioskop.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kurniasandy-11/pembelian-tiket-bioskop/issues"
+  },
+  "homepage": "https://github.com/kurniasandy-11/pembelian-tiket-bioskop#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
   "devDependencies": {
+    "@types/node": "^26.6.11",
+    "@types/prompt-sync": "^4.2.3"
     "@types/node": "^26.6.9",
     "@types/node": "^26.6.6",
     "typescript": "^7.0.2"
