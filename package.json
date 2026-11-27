@@ -24,9 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.11",
-    "@types/prompt-sync": "^4.2.3"
-    "@types/node": "^26.6.9",
-    "@types/node": "^26.6.6",
+    "@types/prompt-sync": "^4.2.3",
     "typescript": "^7.0.2"
   }
 }
