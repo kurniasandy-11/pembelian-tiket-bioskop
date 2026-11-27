@@ -124,3 +124,51 @@ function isiDataAwal(): void {
         }
     }
 }
+
+// ---------------------------------------------------------------------
+// BAGIAN 3: KERANGKA CRUD + SEARCH (DIISI PADA PROGRESS 3-6)
+// ---------------------------------------------------------------------
+
+async function prosesTambah(): Promise<void> { belumTersedia("Tambah (Create)", 3); }
+async function prosesTampilSemua(): Promise<void> { belumTersedia("Lihat Semua (Read)", 4); }
+async function prosesDetail(): Promise<void> { belumTersedia("Detail per ID (Read)", 4); }
+async function prosesUbah(): Promise<void> { belumTersedia("Ubah (Update)", 5); }
+async function prosesHapus(): Promise<void> { belumTersedia("Hapus (Delete)", 5); }
+async function prosesCari(): Promise<void> { belumTersedia("Cari (Search)", 6); }
+
+// ---------------------------------------------------------------------
+// BAGIAN 4: MENU UTAMA (LOOP)
+// ---------------------------------------------------------------------
+
+async function main(): Promise<void> {
+    isiDataAwal();                                   // isi data awal sebelum menu tampil
+    let berjalan: boolean = true;                    // penanda loop: true = lanjut
+
+    // LOOP MENU (do...while): berulang sampai pengguna memilih 0.
+    do {
+        tampilkanMenu();
+        const pilihan: string = (await tanya("Pilih menu (0-6): ")).trim();
+
+        // Memilih aksi sesuai pilihan.
+        switch (pilihan) {
+            case "1": await prosesTambah(); break;
+            case "2": await prosesTampilSemua(); break;
+            case "3": await prosesDetail(); break;
+            case "4": await prosesUbah(); break;
+            case "5": await prosesHapus(); break;
+            case "6": await prosesCari(); break;
+            case "0":
+                berjalan = false;                    // hentikan loop
+                console.log("Terima kasih, sampai jumpa!");
+                break;
+            default:
+                // Input tidak valid (huruf, kosong, angka di luar 0-6) -> loop tetap jalan.
+                console.log("[ERROR] Pilihan tidak valid. Masukkan angka 0 sampai 6.");
+        }
+    } while (berjalan);                              // ulangi selama belum keluar
+}
+
+// Menjalankan program, menangani error, lalu menutup input terminal.
+main()
+    .catch((e: unknown) => console.error("Terjadi kesalahan:", e))
+    .finally(() => rl.close());
