@@ -1,44 +1,36 @@
+// Mengimpor modul readline bawaan Node.js untuk membaca input terminal.
 import * as readline from "readline";
 
-// =====================================================================
-// BLOK 1: TIPE DATA & KONSTANTA
-// =====================================================================
+// ---------------------------------------------------------------------
+// BAGIAN 1: TIPE DATA & PENYIMPANAN
+// ---------------------------------------------------------------------
 
-// Tipe gabungan (union) untuk jenis studio yang tersedia.
-type JenisStudio = "Reguler" | "Premium" | "VVIP";
-
-// Tipe gabungan untuk jenis hari tayang yang memengaruhi harga tiket.
-type JenisHari = "Weekday" | "Weekend" | "Hari Libur";
-
-// Tipe gabungan untuk status pembayaran pemesanan (dipakai sebagai filter Search).
-type StatusPemesanan = "Lunas" | "Belum Lunas";
-
-// Entitas utama aplikasi: satu baris data pemesanan tiket.
+// Bentuk data satu pemesanan (entitas utama).
 interface Pemesanan {
-    id: number;                 // ID unik (number) yang dibuat otomatis
-    namaPemesan: string;        // Nama pemesan (string)
-    umur: number;               // Umur pemesan (number)
-    member: boolean;            // Status member (boolean)
-    film: string;               // Judul film yang dipesan
-    studio: JenisStudio;        // Jenis studio
-    hari: JenisHari;            // Jenis hari tayang
-    jumlahTiket: number;        // Banyaknya tiket yang dipesan
-    hargaSatuan: number;        // Harga satu tiket (hasil hitung)
-    subtotal: number;           // harga satuan x jumlah (hasil hitung)
-    diskon: number;             // Potongan harga member (hasil hitung)
-    totalBayar: number;         // subtotal - diskon (hasil hitung)
-    poin: number;               // Poin member (hasil hitung)
-    status: StatusPemesanan;    // Status pembayaran
+    id: number;        // ID unik (number)
+    nama: string;      // Nama pemesan (string)
+    film: string;      // Judul film (string)
+    studio: string;    // Reguler / Premium / VVIP (string)
+    jumlah: number;    // Jumlah tiket (number)
+    member: boolean;   // Status member (boolean)
+    total: number;     // Total bayar hasil hitung (number)
 }
 
-// Data masukan pengguna: field hasil hitung & id belum ada, dibuat oleh program.
-interface InputPemesanan {
-    namaPemesan: string;
-    umur: number;
-    member: boolean;
-    film: string;
-    studio: JenisStudio;
-    hari: JenisHari;
-    jumlahTiket: number;
-    status: StatusPemesanan;
+// Array penyimpanan data di memori (const: referensi tetap, isi boleh berubah).
+const daftarPemesanan: Pemesanan[] = [];
+
+// Penghitung ID berikutnya (let: nilainya terus bertambah).
+let idBerikutnya: number = 1;
+
+// Konstanta aturan diskon (const: nilai tetap).
+const MINIMAL_DISKON: number = 50000;   // subtotal minimal agar member dapat diskon
+const DISKON_MEMBER: number = 0.1;      // diskon dasar member 10%
+const TAMBAHAN_GRUP: number = 0.05;     // tambahan diskon 5% untuk pemesanan grup (4 tiket atau lebih)
+
+// Membuat antarmuka baca input dari terminal.
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+// Membungkus rl.question agar bisa dipakai dengan await (program menunggu jawaban).
+function tanya(pertanyaan: string): Promise<string> {
+    return new Promise((resolve) => rl.question(pertanyaan, resolve));
 }
